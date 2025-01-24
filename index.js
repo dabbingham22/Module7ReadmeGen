@@ -5,6 +5,7 @@ import fs from 'fs';
 // TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer
+    
     .prompt([
         {
             type:'input',
@@ -28,6 +29,11 @@ const questions = () => {
         },
         {
             type:'input',
+            message:'Enter license requirements',
+            name:'License',
+        },
+        {
+            type:'input',
             message:'Enter contribution guidelines',
             name:'Contributing',
         },
@@ -40,7 +46,7 @@ const questions = () => {
             type:'list',
             message:'What application did you use',
             name:'Application',
-            choices:'',
+            choices:['VS Code', 'Terminal', 'GitHub', 'Course AI'],
         },
         {
             type:'input',
@@ -105,8 +111,9 @@ function createReadme({Title, Description, Installation, Usage, License, Contrib
 // TODO: Create a function to initialize app
 function init() {
     questions()
-    .then((answers) => writefile('README.md', createReadme(answers)))
-    .then(() => console.log('Successfully generated Readme.md file'))
+    .then((answers) => {
+        createReadme(answers);
+    })
     .catch((err) => console.error(err));
 };
 

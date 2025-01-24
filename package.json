@@ -1,15 +1,17 @@
 {
-  "name": "Readme_Generator",
+  "name": "utils",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "8.2.4"
+    "inquirer": "8.2.4",
+    "fs": "^0.0.1-security"
   }
 }
